@@ -1,0 +1,42 @@
+﻿@model MatematicaFinanceiraWeb.Models.ValoresFinanciamento;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row escolhe_financiamento">
+                <div class="container">
+                    <div class="col-md-11">
+                        <label>Financiamento Price</label>
+                        <table class="table table-bordered" ">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Número</th>
+                                    <th scope="col">Prestação</th>
+                                    <th scope="col">Juros</th>
+                                    <th scope="col">Amortização</th>
+                                    <th scope="col">Saldo devedor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for(var i = 0; i < Model.Parcelas.Count; i++){
+                                <tr>
+                                    @{var numero = i + 1;}
+                                    <td>@numero</td>
+                                    <td>@Model.Parcelas[i].Prestacao</td>
+                                    <td>@Model.Parcelas[i].Juros</td>
+                                    <td>@Model.Parcelas[i].Amortizacao</td>
+                                    <td>@Model.Parcelas[i].SaldoDevedor</td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
