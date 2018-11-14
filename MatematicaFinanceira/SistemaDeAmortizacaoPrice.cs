@@ -25,7 +25,7 @@ namespace  MatematicaFinanceira
                 var parcelaAtual = new Parcela(juros.Arredondado(2), amortizacao.Arredondado(2), saldoDevedorAtual.Arredondado(2));
                 parcelas.Add(parcelaAtual);
             }
-
+            parcelas.Last().SaldoDevedor = 0.0M;
             return parcelas;
         }
         public static decimal CalcularValorPrestacao(decimal saldoDevedor, decimal taxaDeJuros, int prazo)

@@ -1,63 +1,57 @@
-﻿@{
+﻿@model MatematicaFinanceiraWeb.Models.ValoresFinanciamento;
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row escolhe_financiamento">
-                <div class="container">
-                    @using (Html.BeginForm("GerarTabela", "Price", FormMethod.Post))
+<div class="row">
+    <div class="col-md-8">
+        <div class="row escolhe_financiamento">
+            @using (Html.BeginForm("GerarTabela", "Price", FormMethod.Post))
+            {
+                <br />
+                <div class="col-sm-5">
+                    <h3 style="text-align:left">Dados Financiamento</h3>
+                    @Html.TextBoxFor(m => m.Valor, new { @class = "form-control mb-2", @placeholder = "Valor financiamento", id = "valorFinanciamento", @Value = "test", Type = "number",  })
+                    @*<input type="number" class="form-control mb-2" value="@{@Model?.Valor.ToString();} " name="Valor" id="valorFinanciamento" placeholder="Valor financiamento" required>*@
+                    <br />
+                    @Html.TextBoxFor(m => m.Prazo, new { @class = "form-control mb-2", @placeholder = "Prazo", id = "prazo", Type = "number" })
+                    <br />
+                    @Html.TextBoxFor(m => m.TaxaJuros, new { @class = "form-control mb-2", @placeholder = "Prazo", id = "TaxaJuros", Type = "number" })
+                    <br />
+                    <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">Gerar Tabela Price</button>
+                </div>
+                <div class="col-md-4">
+                    @if (Model?.Parcelas.Count > 0)
                     {
-                        <h3>Preencha os dados do financiamento e escolha uma das opções</h3>
-                        <div class="form-row align-items-center">
-                            <br />
-                            <div class="col-md-6">
-                                <label>Valor do financiamento</label>
-                                <input type="text" class="form-control mb-2" name="Valor" id="valorFinanciamento" placeholder="Valor financiamento" required>
-                                <br />
-                                <label>Prazo</label>
-                                <input type="text" class="form-control mb-2" name="Prazo" id="prazo" placeholder="Prazo" required>
-                                <br />
-                                <label>Taxa de juros</label>
-                                <input type="text" class="form-control mb-2" name="TaxaJuros" id="Taxa de juros" placeholder="Juros" required>
-                                <br />
-                                <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">Gerar Tabela Price</button>
-                                <br />
-                                <br />
-                                <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">Gerar valor das prestações</button>
-                                <br />
-                                <br />
-                                <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">Saldo Devedor T</button>
-                                <br />
-                                <br />
-                                <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">Saldo Devedor T - 1</button>
-                                <br />
-                                <br />
-                                <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">Parcela Juros T</button>
-                                <br />
-                                <br />
-                                <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">1º Amortização</button>
-                                <br />
-                                <br />
-                                <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">Parcela amortização em T</button>
-                                <br />
-                                <br />
-                                <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">Amortização acumulada até T</button>
-                                <br />
-                                <br />
-                                <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">Amortização entre T e K</button>
-                                <br />
-                                <br />
-                                <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">Juros acumulados até T</button>
-                                <br />
-                                <br />
-                                <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">Juros acumulados entre T e K</button>
-                            </div>
-                        </div>
+                        <label>Tabela Price</label>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Número</th>
+                                    <th scope="col">Prestação</th>
+                                    <th scope="col">Juros</th>
+                                    <th scope="col">Amortização</th>
+                                    <th scope="col">Saldo devedor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (var i = 0; i < Model.Parcelas.Count; i++)
+                                {
+                                    <tr>
+                                        @{var numero = i + 1;}
+                                        <td>@numero</td>
+                                        <td>@Model.Parcelas[i].Prestacao</td>
+                                        <td>@Model.Parcelas[i].Juros</td>
+                                        <td>@Model.Parcelas[i].Amortizacao</td>
+                                        <td>@Model.Parcelas[i].SaldoDevedor</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
                     }
                 </div>
-            </div>
+            }
         </div>
     </div>
 </div>
+

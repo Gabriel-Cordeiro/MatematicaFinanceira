@@ -35,12 +35,22 @@
 }
 
 .escolhe_financiamento {
-    text-align: center;
+    text-align: left;
     background: #FFF;
-    padding: 20px;
+    padding: 0px;
+    position: absolute;
+    left: 0;
+    width: 80%;
 }
 
 .center-align {
+    position: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-topo {
     position: center;
     top: 50%;
     left: 50%;

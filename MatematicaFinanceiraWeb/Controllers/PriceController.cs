@@ -23,7 +23,7 @@ namespace MatematicaFinanceiraWeb.Controllers
         {
             if (tipoSubmit.Equals("geraTabela")){
                 valores.Parcelas = SistemaDeAmortizacaoPrice.CalcularParcelas(valores.Valor,valores.TaxaJuros,valores.Prazo);
-                return View("Tabela", valores);
+                return View("Index",valores);
             }
             return View();
         }
