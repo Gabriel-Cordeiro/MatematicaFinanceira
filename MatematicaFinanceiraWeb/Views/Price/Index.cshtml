@@ -3,13 +3,10 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="row">
-    <div class="col-md-8">
         <div class="row escolhe_financiamento">
             @using (Html.BeginForm("GerarTabela", "Price", FormMethod.Post))
             {
-                <br />
-                <div class="col-sm-5">
+                <div class="col-md-4 col-lg-3 sidebar">
                     <h3 style="text-align:left">Dados Financiamento</h3>
                     @Html.TextBoxFor(m => m.Valor, new { @class = "form-control mb-2", @placeholder = "Valor financiamento", id = "valorFinanciamento", @Value = "test", Type = "number",  })
                     @*<input type="number" class="form-control mb-2" value="@{@Model?.Valor.ToString();} " name="Valor" id="valorFinanciamento" placeholder="Valor financiamento" required>*@
@@ -20,10 +17,24 @@
                     <br />
                     <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">Gerar Tabela Price</button>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-8 col-lg-9">
+                    <div class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div> 
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                         <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <select id="" class="form-control">
+                        <option>select</option>
+                        </select>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
                     @if (Model?.Parcelas.Count > 0)
                     {
-                        <label>Tabela Price</label>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -52,6 +63,4 @@
                 </div>
             }
         </div>
-    </div>
-</div>
 
