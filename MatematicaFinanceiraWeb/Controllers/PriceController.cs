@@ -19,11 +19,17 @@ namespace MatematicaFinanceiraWeb.Controllers
         }
         // GET: /<controller>/
         [HttpPost]
-        public IActionResult GerarTabela(ValoresFinanciamento valores, string tipoSubmit)
+        public IActionResult GerarTabela(ValoresFinanciamento valores, string tipoSubmit, string opcoesCalcular, int t, int k)
         {
-            if (tipoSubmit.Equals("geraTabela")){
-                valores.Parcelas = SistemaDeAmortizacaoPrice.CalcularParcelas(valores.Valor,valores.TaxaJuros,valores.Prazo);
-                return View("Index",valores);
+            if (tipoSubmit.Equals("geraTabela"))
+            {
+                valores.Parcelas = SistemaDeAmortizacaoPrice.CalcularParcelas(valores.Valor, valores.TaxaJuros, valores.Prazo);
+                return View("Index", valores);
+            }
+            if (tipoSubmit.Equals("calcularOpcao"))
+            {
+                ViewData["Calculo"] = valores.RetornaValorCalculo(opcoesCalcular, t, k);
+                return View("Index");
             }
             return View();
         }

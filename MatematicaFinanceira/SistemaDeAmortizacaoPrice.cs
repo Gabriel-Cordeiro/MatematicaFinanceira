@@ -31,7 +31,7 @@ namespace  MatematicaFinanceira
         public static decimal CalcularValorPrestacao(decimal saldoDevedor, decimal taxaDeJuros, int prazo)
         {
             var coeficienteK = (taxaDeJuros * (1 + taxaDeJuros).ElevadoPor(prazo)) / ((1 + taxaDeJuros).ElevadoPor(prazo) - 1);
-            return (coeficienteK * saldoDevedor).Arredondado(0);
+            return (coeficienteK * saldoDevedor).Arredondado(2);
         }
 
         public static decimal SaldoDevedorEmOrdemT(decimal saldoDevedor, decimal taxaDeJuros, int prazo, int ordemT)

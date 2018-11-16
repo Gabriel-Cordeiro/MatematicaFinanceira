@@ -3,13 +3,6 @@
     padding-bottom: 20px;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
@@ -34,13 +27,9 @@
     }
 }
 
-.escolhe_financiamento {
+.sidebar {
     text-align: left;
-    background: #FFF;
-    padding: 0px;
-    position: absolute;
-    left: 0;
-    width: 80%;
+    background: #74cfea;
 }
 
 .center-align {

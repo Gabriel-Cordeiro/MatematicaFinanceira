@@ -1,66 +1,79 @@
 ﻿@model MatematicaFinanceiraWeb.Models.ValoresFinanciamento;
 @{
-    ViewData["Title"] = "Home Page";
+    var calculo = ViewData["Calculo"] != null ? (decimal)ViewData["Calculo"] : 0;
 }
 
-        <div class="row escolhe_financiamento">
-            @using (Html.BeginForm("GerarTabela", "Price", FormMethod.Post))
+<div class="row escolhe_financiamento">
+    <br />
+    @using (Html.BeginForm("GerarTabela", "Price", FormMethod.Post))
+    {
+        <div class="col-md-4 col-lg-3 sidebar">
+            <h3 style="text-align:left">Dados Financiamento</h3>
+            @Html.TextBoxFor(m => m.Valor, new { @class = "form-control mb-2", @min = "0", @placeholder = "Valor financiamento", id = "valorFinanciamento", Type = "text", @step = "1.00", required = "required" })
+            <br />
+            @Html.TextBoxFor(m => m.Prazo, new { @class = "form-control mb-2", @placeholder = "Prazo", @min = "0", id = "prazo", Type = "text", required = "required" })
+            <br />
+            @Html.TextBoxFor(m => m.TaxaJuros, new { @class = "form-control mb-2", @step = "0.01", @placeholder = "Taxa juros", @min = "0", id = "TaxaJuros", Type = "text", required = "required" })
+            <br />
+            <button type="submit" style="margin-left:30%" class="btn btn-primary" id="tipoSubmit" name="tipoSubmit" value="geraTabela">Gerar Tabela Price</button>
+        </div>
+        <div class="col-md-8 col-lg-9">
+            <div class="navbar-form navbar-left" role="search">
+                <select required id="opcoesCalcular" name="opcoesCalcular" class="form-control">
+                    <option disabled selected value="">Escolha uma opção</option>
+                    <option value="1">Valor da prestação</option>
+                    <option value="2">Saldo devedor ao pagar parcela de nº</option>
+                    <option value="3">Saldo devedor na parcela de nº</option>
+                    <option value="4">Juros ao pagar parcela de nº</option>
+                    <option value="5">Juros acumulado até parcela de nº</option>
+                    <option value="6">juros acumulados entre parcelas</option>
+                    <option value="7">Valor primeira amortização</option>
+                    <option value="8">Amortização ao pagar parcela de nº</option>
+                    <option value="9">Amortização acumulada até parcela de nº</option>
+                    <option value="10">Amortização acumulada entre parcelas</option>
+                </select>
+                <div class="form-group" style="display:none" id="t">
+                    <input required type="number" min="0" id="parcelaT" name="t" class="form-control" placeholder="Nº da parcela">
+                </div>
+                <div class="form-group" style="display:none" id="k">
+                    <input required type="number" min="0" id="parcelaK" name="k" class="form-control" placeholder="Nº da parcela final">
+                </div>
+                <button type="submit" class="btn btn-info" name="tipoSubmit" id="tipoSubmit" value="calcularOpcao">Calcular</button>
+                @if (calculo > 0)
+                {
+                    <label> Resultado</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Resultado" value="R$ @calculo.ToString()" readonly>
+                    </div>
+                }
+            </div>
+            @if (Model?.Parcelas.Count > 0)
             {
-                <div class="col-md-4 col-lg-3 sidebar">
-                    <h3 style="text-align:left">Dados Financiamento</h3>
-                    @Html.TextBoxFor(m => m.Valor, new { @class = "form-control mb-2", @placeholder = "Valor financiamento", id = "valorFinanciamento", @Value = "test", Type = "number",  })
-                    @*<input type="number" class="form-control mb-2" value="@{@Model?.Valor.ToString();} " name="Valor" id="valorFinanciamento" placeholder="Valor financiamento" required>*@
-                    <br />
-                    @Html.TextBoxFor(m => m.Prazo, new { @class = "form-control mb-2", @placeholder = "Prazo", id = "prazo", Type = "number" })
-                    <br />
-                    @Html.TextBoxFor(m => m.TaxaJuros, new { @class = "form-control mb-2", @placeholder = "Prazo", id = "TaxaJuros", Type = "number" })
-                    <br />
-                    <button type="submit" class="btn btn-info" name="tipoSubmit" value="geraTabela">Gerar Tabela Price</button>
-                </div>
-                <div class="col-md-8 col-lg-9">
-                    <div class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div> 
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <select id="" class="form-control">
-                        <option>select</option>
-                        </select>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                        </div>
-                    @if (Model?.Parcelas.Count > 0)
-                    {
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Número</th>
-                                    <th scope="col">Prestação</th>
-                                    <th scope="col">Juros</th>
-                                    <th scope="col">Amortização</th>
-                                    <th scope="col">Saldo devedor</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @for (var i = 0; i < Model.Parcelas.Count; i++)
-                                {
-                                    <tr>
-                                        @{var numero = i + 1;}
-                                        <td>@numero</td>
-                                        <td>@Model.Parcelas[i].Prestacao</td>
-                                        <td>@Model.Parcelas[i].Juros</td>
-                                        <td>@Model.Parcelas[i].Amortizacao</td>
-                                        <td>@Model.Parcelas[i].SaldoDevedor</td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    }
-                </div>
+                <table class="table table-striped" id="parcelas">
+                    <thead>
+                        <tr>
+                            <th scope="col">Número</th>
+                            <th scope="col">Prestação</th>
+                            <th scope="col">Juros</th>
+                            <th scope="col">Amortização</th>
+                            <th scope="col">Saldo devedor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (var i = 0; i < Model.Parcelas.Count; i++)
+                        {
+                            <tr>
+                                @{var numero = i + 1;}
+                                <td>@numero</td>
+                                <td>@Model.Parcelas[i].Prestacao</td>
+                                <td>@Model.Parcelas[i].Juros</td>
+                                <td>@Model.Parcelas[i].Amortizacao</td>
+                                <td>@Model.Parcelas[i].SaldoDevedor</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             }
         </div>
-
+    }
+</div>
