@@ -6,7 +6,7 @@ namespace  MatematicaFinanceira
 {
     public class SistemaDeAmortizacaoConstante
     {
-        public static IReadOnlyList<Parcela> CalcularParcelas(decimal saldoDevedor, decimal taxaDeJuros, int prazo)
+        public static List<Parcela> CalcularParcelas(decimal saldoDevedor, decimal taxaDeJuros, int prazo)
         {
             var parcelas = new List<Parcela>();
             var saldoDevedorAtual = saldoDevedor;

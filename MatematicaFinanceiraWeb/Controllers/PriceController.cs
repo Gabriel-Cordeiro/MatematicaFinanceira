@@ -17,7 +17,6 @@ namespace MatematicaFinanceiraWeb.Controllers
         {
             return View();
         }
-        // GET: /<controller>/
         [HttpPost]
         public IActionResult GerarTabela(ValoresFinanciamento valores, string tipoSubmit, string opcoesCalcular, int t, int k)
         {
@@ -28,7 +27,7 @@ namespace MatematicaFinanceiraWeb.Controllers
             }
             if (tipoSubmit.Equals("calcularOpcao"))
             {
-                ViewData["Calculo"] = valores.RetornaValorCalculo(opcoesCalcular, t, k);
+                ViewData["Calculo"] = valores.RetornaValorCalculoPrice(opcoesCalcular, t, k);
                 return View("Index");
             }
             return View();

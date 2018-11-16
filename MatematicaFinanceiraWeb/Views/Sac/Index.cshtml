@@ -4,7 +4,7 @@
 }
 
 <div class="row escolhe_financiamento">
-    @using (Html.BeginForm("GerarTabela", "Price", FormMethod.Post))
+    @using (Html.BeginForm("GerarTabela", "Sac", FormMethod.Post))
     {
         <div class="col-md-4 col-lg-3 sidebar">
             <h3 style="text-align:left">Dados Financiamento</h3>
@@ -20,18 +20,19 @@
         </div>
         <div class="col-md-8 col-lg-9 main">
             <div class="navbar-form navbar-left" role="search">
-                <select required id="opcoesCalcular" name="opcoesCalcular" class="form-control">
+                <select required id="opcoesCalcularSac" name="opcoesCalcularSac" class="form-control">
                     <option disabled selected value="">Escolha uma opção</option>
-                    <option value="1">Valor da prestação</option>
+                    <option value="1">Valor da Amortização</option>
                     <option value="2">Saldo devedor ao pagar parcela de nº</option>
                     <option value="3">Saldo devedor na parcela de nº</option>
                     <option value="4">Juros ao pagar parcela de nº</option>
                     <option value="5">Juros acumulado até parcela de nº</option>
                     <option value="6">Juros acumulados entre parcelas</option>
-                    <option value="7">Valor primeira amortização</option>
-                    <option value="8">Amortização ao pagar parcela de nº</option>
-                    <option value="9">Amortização acumulada até parcela de nº</option>
-                    <option value="10">Amortização acumulada entre parcelas</option>
+                    <option value="7">Valor da parcela de nº</option>
+                    <option value="8">Soma das parcelas acumuladas</option>
+                    <option value="9">Amortização acumulada entre parcelas</option>
+                    <option value="10">Soma entre parcelas de nº</option>
+                    <option value="11">Decréscimos nas prestações</option>
                 </select>
                 <div class="form-group" id="t"></div>
                 <div class="form-group" id="k"></div>
