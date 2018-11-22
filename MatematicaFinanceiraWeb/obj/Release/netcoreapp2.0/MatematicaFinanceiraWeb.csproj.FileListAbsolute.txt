@@ -55,3 +55,4 @@ C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\o
 C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\obj\Release\netcoreapp2.0\MatematicaFinanceiraWeb.csproj.CopyComplete
 C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\obj\Release\netcoreapp2.0\MatematicaFinanceiraWeb.dll
 C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\obj\Release\netcoreapp2.0\MatematicaFinanceiraWeb.pdb
+C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\bin\Release\netcoreapp2.0\wwwroot\js\site.js

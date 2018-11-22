@@ -664,28 +664,30 @@
     ]
   },
   "packageFolders": {
-    "/home/gabriel/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\gabri\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/gabriel/Documents/meusProjetos/MatematicaFinanceira/MatematicaFinanceira/MatematicaFinanceira.csproj",
+      "projectUniqueName": "C:\\Users\\gabri\\Documents\\projetos\\MatematicaFinanceira\\MatematicaFinanceira\\MatematicaFinanceira.csproj",
       "projectName": "MatematicaFinanceira",
-      "projectPath": "/home/gabriel/Documents/meusProjetos/MatematicaFinanceira/MatematicaFinanceira/MatematicaFinanceira.csproj",
-      "packagesPath": "/home/gabriel/.nuget/packages/",
-      "outputPath": "/home/gabriel/Documents/meusProjetos/MatematicaFinanceira/MatematicaFinanceira/obj/",
+      "projectPath": "C:\\Users\\gabri\\Documents\\projetos\\MatematicaFinanceira\\MatematicaFinanceira\\MatematicaFinanceira.csproj",
+      "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gabri\\Documents\\projetos\\MatematicaFinanceira\\MatematicaFinanceira\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/gabriel/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

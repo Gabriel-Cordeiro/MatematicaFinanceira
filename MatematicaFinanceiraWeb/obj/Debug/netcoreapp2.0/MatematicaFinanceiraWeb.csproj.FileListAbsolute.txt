@@ -69,7 +69,7 @@ C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\b
 C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\bin\Debug\netcoreapp2.0\MatematicaFinanceira.pdb
 C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\obj\Debug\netcoreapp2.0\MatematicaFinanceiraWeb.csprojAssemblyReference.cache
 C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\obj\Debug\netcoreapp2.0\MatematicaFinanceiraWeb.csproj.CoreCompileInputs.cache
-C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\obj\Debug\netcoreapp2.0\MatematicaFinanceiraWeb.AssemblyInfoInputs.cache
 C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\obj\Debug\netcoreapp2.0\MatematicaFinanceiraWeb.AssemblyInfo.cs
 C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\obj\Debug\netcoreapp2.0\MatematicaFinanceiraWeb.csproj.CopyComplete
+C:\Users\gabri\Documents\projetos\MatematicaFinanceira\MatematicaFinanceiraWeb\bin\Debug\netcoreapp2.0\wwwroot\js\site.js

@@ -31,7 +31,7 @@ $("#tipoSubmit").click(function () {
 $("#opcoesCalcularSac").change(function () {
     $("#resultado").remove();
     var selected_option = $('#opcoesCalcularSac').val();
-    var arrayIncludesT = ['2', '3', '4', '5', '8','7', '9'];
+    var arrayIncludesT = ['2', '3', '4', '5', '8','7'];
     var arrayIncludesK = ['10', '6','9'];
 
     var textParcelaT = '<input required type="number" min="0" id="parcelaT" name="t" class="form-control" placeholder="Nº da parcela">';

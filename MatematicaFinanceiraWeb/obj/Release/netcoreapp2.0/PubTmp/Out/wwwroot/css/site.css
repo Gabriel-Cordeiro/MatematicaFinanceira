@@ -27,9 +27,23 @@
     }
 }
 
+.main{
+    margin-left: 270px; 
+}
+
 .sidebar {
-    text-align: left;
-    background: #e1e2e6;
+    color: #9d9d9d;
+    height: 100%;
+    width: 270px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 50px;
+    background-color: #222;
+    border-color: #080808;
 }
 
 .center-align {

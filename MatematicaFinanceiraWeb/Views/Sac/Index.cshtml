@@ -61,8 +61,7 @@
                         @for (var i = 0; i < Model.Parcelas.Count; i++)
                         {
                             <tr>
-                                @{var numero = i + 1;}
-                                <td>@numero</td>
+                                <td>@i</td>
                                 <td>@Model.Parcelas[i].Prestacao</td>
                                 <td>@Model.Parcelas[i].Juros</td>
                                 <td>@Model.Parcelas[i].Amortizacao</td>
