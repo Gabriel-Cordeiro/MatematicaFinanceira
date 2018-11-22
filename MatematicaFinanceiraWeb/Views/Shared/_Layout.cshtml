@@ -32,7 +32,6 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Sac" asp-action="Index">Sac</a></li>
                     <li><a asp-area="" asp-controller="Price" asp-action="Index">Price</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">Dúvidas</a></li>
                 </ul>
             </div>
         </div>
@@ -46,6 +45,7 @@
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
@@ -62,6 +62,7 @@
                 crossorigin="anonymous"
                 integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
         </script>
+        <script src="jquery.maskedinput.js" type="text/javascript"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"

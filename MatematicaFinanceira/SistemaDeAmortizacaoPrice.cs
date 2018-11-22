@@ -15,14 +15,14 @@ namespace  MatematicaFinanceira
 
             var saldoDevedorAtual = saldoDevedor;
             var coeficienteK = (taxaDeJuros * (1 + taxaDeJuros).ElevadoPor(prazo)) / ((1 + taxaDeJuros).ElevadoPor(prazo) - 1);
-            var prestacaoAtravesDoPrazo = (coeficienteK * saldoDevedor).Arredondado(2);
+            var prestacaoAtravesDoPrazo = (coeficienteK * saldoDevedor);
 
             for (var numeroDaParcela = 0; numeroDaParcela < prazo; numeroDaParcela++)
             {
                 var juros = JurosCompostos.CalcularJuros(saldoDevedorAtual, taxaDeJuros, 1);
                 var amortizacao = prestacaoAtravesDoPrazo - juros;
                 saldoDevedorAtual -= amortizacao;
-                var parcelaAtual = new Parcela(juros.Arredondado(2), amortizacao.Arredondado(2), saldoDevedorAtual.Arredondado(2));
+                var parcelaAtual = new Parcela(juros, amortizacao, saldoDevedorAtual);
                 parcelas.Add(parcelaAtual);
             }
             parcelas.Last().SaldoDevedor = 0.0M;
@@ -31,7 +31,7 @@ namespace  MatematicaFinanceira
         public static decimal CalcularValorPrestacao(decimal saldoDevedor, decimal taxaDeJuros, int prazo)
         {
             var coeficienteK = (taxaDeJuros * (1 + taxaDeJuros).ElevadoPor(prazo)) / ((1 + taxaDeJuros).ElevadoPor(prazo) - 1);
-            return (coeficienteK * saldoDevedor).Arredondado(2);
+            return (coeficienteK * saldoDevedor);
         }
 
         public static decimal SaldoDevedorEmOrdemT(decimal saldoDevedor, decimal taxaDeJuros, int prazo, int ordemT)
@@ -76,7 +76,7 @@ namespace  MatematicaFinanceira
             {
                 valorAcumulado += price[i].Amortizacao;
             }
-            return valorAcumulado.Arredondado(2);
+            return valorAcumulado;
         }
 
         public static decimal ValorJurosAcumuladoEmOrdemT(decimal saldoDevedor, decimal taxaDeJuros, int prazo, int ordemT)
@@ -100,7 +100,7 @@ namespace  MatematicaFinanceira
             {
                 valorAcumulado += price[i].Juros;
             }
-            return valorAcumulado.Arredondado(2);
+            return valorAcumulado;
         }
 
     }

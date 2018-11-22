@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using  MatematicaFinanceira;
+using MatematicaFinanceira;
 using MatematicaFinanceiraWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +18,7 @@ namespace MatematicaFinanceiraWeb.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult GerarTabela(ValoresFinanciamento valores, string tipoSubmit, string opcoesCalcular, int t, int k)
+        public IActionResult GerarTabela(ValoresFinanciamento valores, string tipoSubmit, string opcoesCalcular, int t, int k, bool gerouTabela)
         {
             if (tipoSubmit.Equals("geraTabela"))
             {
@@ -27,8 +27,9 @@ namespace MatematicaFinanceiraWeb.Controllers
             }
             if (tipoSubmit.Equals("calcularOpcao"))
             {
+                valores.Parcelas = gerouTabela ? SistemaDeAmortizacaoPrice.CalcularParcelas(valores.Valor, valores.TaxaJuros, valores.Prazo) : null;
                 ViewData["Calculo"] = valores.RetornaValorCalculoPrice(opcoesCalcular, t, k);
-                return View("Index");
+                return View("Index",valores);
             }
             return View();
         }

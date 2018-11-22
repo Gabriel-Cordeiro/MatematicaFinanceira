@@ -18,22 +18,14 @@ namespace  MatematicaFinanceira
             {
                 var juros = JurosCompostos.CalcularJuros(saldoDevedorAtual, taxaDeJuros, prazo: 1);
                 saldoDevedorAtual -= amortizacaoAtravesDoPrazo;
-
-                var temQueCompensarDizimaPeriodica = numeroDaParcela == prazo - 1 && saldoDevedorAtual != 0;
-
-                if (temQueCompensarDizimaPeriodica)
-                    amortizacaoAtravesDoPrazo += 0.01m;
-
-                parcelas.Add(new Parcela(juros.Arredondado(2), amortizacaoAtravesDoPrazo.Arredondado(2), saldoDevedorAtual.Arredondado(2)));
-
+                parcelas.Add(new Parcela(juros, amortizacaoAtravesDoPrazo, saldoDevedorAtual));
             }
-
             return parcelas;
         }
 
         public static decimal ValorAmortizacao(decimal saldoDevedor, int prazo)
         {
-            return (saldoDevedor/prazo).Arredondado(2);
+            return (saldoDevedor/prazo);
         }
 
         public static decimal SaldoDevedorEmOrdemT(decimal saldoDevedor, decimal taxaDeJuros, int prazo, int ordemT)

@@ -2,7 +2,6 @@
 @{
     var calculo = ViewData["Calculo"] != null ? (decimal)ViewData["Calculo"] : 0;
 }
-
 <div class="row escolhe_financiamento">
     @using (Html.BeginForm("GerarTabela", "Sac", FormMethod.Post))
     {
@@ -12,13 +11,14 @@
             <br />
             @Html.TextBoxFor(m => m.Prazo, new { @class = "form-control mb-2", @placeholder = "Prazo", @min = "0", id = "prazo", Type = "text", required = "required" })
             <br />
-            @Html.TextBoxFor(m => m.TaxaJuros, new { @class = "form-control mb-2", @step = "0.01", @placeholder = "Taxa juros", @min = "0", id = "TaxaJuros", Type = "text", required = "required" })
+            @Html.TextBoxFor(m => m.TaxaJuros, new { @class = "form-control mb-2", @step = "0.01", @placeholder = "Taxa juros a.m", @min = "0", id = "TaxaJuros", Type = "text", required = "required" })
             <br />
             <div style="text-align: center">
                 <button type="submit"  class="btn btn-primary" id="tipoSubmit" name="tipoSubmit" value="geraTabela">Gerar Tabela</button>
             </div>
         </div>
         <div class="col-md-8 col-lg-9 main">
+          <h3 style="text-align:center">Sistema SAC</h3>
             <div class="navbar-form navbar-left" role="search">
                 <select required id="opcoesCalcularSac" name="opcoesCalcularSac" class="form-control">
                     <option disabled selected value="">Escolha uma opção</option>
@@ -62,10 +62,10 @@
                         {
                             <tr>
                                 <td>@i</td>
-                                <td>@Model.Parcelas[i].Prestacao</td>
-                                <td>@Model.Parcelas[i].Juros</td>
-                                <td>@Model.Parcelas[i].Amortizacao</td>
-                                <td>@Model.Parcelas[i].SaldoDevedor</td>
+                                <td>@Math.Round(Model.Parcelas[i].Prestacao,2)</td>
+                                <td>@Math.Round(Model.Parcelas[i].Juros,2)</td>
+                                <td>@Math.Round(Model.Parcelas[i].Amortizacao,2)</td>
+                                <td>@Math.Round(Model.Parcelas[i].SaldoDevedor,2)</td>
                             </tr>
                         }
                     </tbody>
